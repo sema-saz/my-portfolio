@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sema Saz | Technical Business Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    /* LinkedIn Kapak Fotoğrafı Renk Paleti */
+    --bg-primary: #f4f6eb;       
+    --bg-secondary: rgba(65, 125, 122, 0.05); 
+    --text-primary: #1A3C40;     
+    --text-secondary: rgba(26, 60, 64, 0.7); 
+    --accent-primary: #1D5C63;   
+    --accent-glow: #417D7A;      
+    --border-light: rgba(26, 60, 64, 0.15); 
+    
+    --max-width: 1100px;
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: #f4f6eb; 
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    position: relative;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent-glow);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--accent-glow);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    transition: var(--transition);
+}
+
+/* ================= HERO (GİRİŞ KISMI) ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 22rem 1rem 5rem; 
+    text-align: center;
+    
+    /* Arka Plan Görseli Ayarları */
+    background-image: url('website-background.png'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero button {
+    background: var(--accent-primary);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    color: var(--bg-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(29, 92, 99, 0.4);
+}
+
+.hero button:hover {
+    background: var(--accent-glow);
+    color: var(--bg-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(65, 125, 122, 0.5);
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 5rem 1rem;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+/* ================= ABOUT ================= */
+
+.about p {
+    max-width: 800px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: var(--bg-secondary);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover {
+    border-color: var(--accent-glow);
+    transform: translateY(-5px);
+    background: rgba(65, 125, 122, 0.08);
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--accent-glow);
+}
+
+.skill-card ul {
+    list-style: none;
+    flex-grow: 1; 
+}
+
+.skill-card li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.skill-card li::before {
+    content: "▹";
+    color: var(--accent-primary);
+    margin-right: 8px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.tools-highlight {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-light);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.tools-highlight span {
+    color: var(--accent-glow);
+    font-weight: 600;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--bg-secondary);
+    padding: 1.8rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-glow);
+    box-shadow: 0 10px 30px rgba(26, 60, 64, 0.15);
+}
+
+.project-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    background: rgba(65, 125, 122, 0.15); 
+    color: var(--text-primary); 
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(65, 125, 122, 0.4);
+}
+
+.project-links a {
+    font-size: 0.9rem;
+    margin-right: 1.2rem;
+    text-decoration: none;
+    color: var(--accent-glow);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    color: var(--text-primary);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.contact-info a:hover {
+    color: var(--accent-glow);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-secondary);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem;
+        display: none;
+        border-bottom: 1px solid var(--border-light);
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Sema Saz</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <button onclick="scrollToSection('projects')">View My Work</button>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            Hi! I’m Sema, a Management Information Systems (MIS) graduate from Sakarya University, driven by a deep passion for Business Analysis. I'm also eager to learn new AI technologies. I am actively transforming this passion by doing ai driven projects with my business analyse skill set. With a versatile and vibrant personality, I thrive on tackling challenges that spark my curiosity and professional growth.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Core Competencies & Technical Toolkit</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-card">
+                <h3>Business Analysis & Process Modeling</h3>
+                <ul>
+                    <li>Requirements Analysis (FR/NFR)</li>
+                    <li>BPMN, UML & Flowcharts</li>
+                    <li>User Stories & UAT</li>
+                    <li>Wireframe Design</li>
+                </ul>
+                <div class="tools-highlight">
+                    <span>Tools:</span> Draw.io, Miro, Figma, Lucidchart
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Project Management & Methodologies</h3>
+                <ul>
+                    <li>SDLC</li>
+                    <li>Agile / Scrum</li>
+                    <li>Kanban</li>
+                    <li>Waterfall</li>
+                </ul>
+                <div class="tools-highlight">
+                    <span>Tools:</span> Jira, Confluence
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Data Analysis & Visualization</h3>
+                <ul>
+                    <li>MSSQL</li>
+                    <li>MS Excel (Advanced)</li>
+                    <li>Power BI</li>
+                    <li>Tableau</li>
+                </ul>
+                <div class="tools-highlight">
+                    <span>Tools:</span> MSSQL, Excel, PowerBI, Tableau
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>API & Web Services</li>
+                    <li>Postman</li>
+                    <li>Python (Basic)</li>
+                    <li>Database Architecture</li>
+                </ul>
+                <div class="tools-highlight">
+                    <span>Tools:</span> Jira, Postman, Python, ERD
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div>
+                    <h3>ReviewHUB Lite - SaaS Review Management Platform</h3>
+                    <p>
+                        A Multi-Tenant SaaS solution enabling small businesses to integrate Google Maps reviews into their websites with a single click. Features a credit-based economy model, Row Level Security (RLS), and a comprehensive admin panel.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Next.js 16</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Tailwind CSS v4</span>
+                        <span class="tag">PostgreSQL + Auth</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432677139428110336/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/sema-saz/ReviewHUB-Lite-Project" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>BloggerDev - CMS Architecture</h3>
+                    <p>
+                        A high-performance CMS built on a normalized SQL database and Python/FastAPI. Utilized AI tools (Claude, Gemini) for rapid "vibe coding" to develop a Tkinter admin panel and web UI. The project lifecycle was managed via Jira using Agile methodologies.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Python & API</span>
+                        <span class="tag">AI-Assisted Dev</span>
+                        <span class="tag">Agile (Jira)</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7427633824500510720/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/sema-saz/BloggerDev-Project" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>Instagram Reels Algorithm Analysis (Case Study)</h3>
+                    <p>
+                        A comprehensive business analysis project aimed at resolving repetitive content issues. Includes As-Is / To-Be state analysis, FR/NFR documentation, user story mapping, and mid-fidelity wireframe designs.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Business Analysis</span>
+                        <span class="tag">Requirement Eng.</span>
+                        <span class="tag">Wireframing</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://medium.com/@semasazz7/instagram-%C3%B6zellik-geli%C5%9Ftirme-analiz-dok%C3%BCman%C4%B1-958b01db3c23" target="_blank">Read Case Study</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>AI Chatbot Integration for Call Centers (Case Study)</h3>
+                    <p>
+                        Transformation of traditional customer service processes into an AI-powered system within a Core MVP framework. Involves UML Sequence diagrams, API integration workflows, Gherkin UAT test scenarios, and KPI definitions.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Process Modeling (UML)</span>
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">UAT & KPI</span>
+                        <span class="tag">MoSCoW</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://medium.com/@semasazz7/ak%C4%B1ll%C4%B1-m%C3%BC%C5%9Fteri-asistan%C4%B1-projesi-case-study-0809fbf391cc" target="_blank">Read Case Study</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <a href="mailto:semasazz7@gmail.com">semasazz7@gmail.com</a>
+            <a href="https://www.linkedin.com/in/sema-saz" target="_blank">LinkedIn</a>
+            <a href="https://github.com/sema-saz" target="_blank">GitHub</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    ©2026 Sema Saz — Designed for portfolio purpose use.
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
